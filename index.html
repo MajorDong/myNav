@@ -10,7 +10,24 @@
 <body>
     <header></header>
     <main> 
+        <style>
+            .key {
+                width: 50px;
+                height: 40px;
+                background: linear-gradient(to bottom, #292929 1%,#111111 100%);
+                color: #C9C8C9;
+                border: 1px solid #373737;
+                border-radius: 6px;
+                box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                                                             
+            }
+        </style>
+        <kbd class="key">A</kbd>
         <div class="warpper" id="mainXXXXX"></div>
+        
         
        
     </main>
@@ -63,7 +80,7 @@
         document.onkeypress = function(sdx){
             key = sdx['key']
             website = hash[key]
-            location.href = 'http://' + website
+            //location.href = 'http://' + website
             window.open('http://' + website, '_blank')
         }
     </script>
