@@ -10,22 +10,8 @@
 <body>
     <header></header>
     <main> 
-        <style>
-            .key {
-                width: 50px;
-                height: 40px;
-                background: linear-gradient(to bottom, #292929 1%,#111111 100%);
-                color: #C9C8C9;
-                border: 1px solid #373737;
-                border-radius: 6px;
-                box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                                                             
-            }
-        </style>
-        <kbd class="key">A</kbd>
+        
+
         <div class="warpper" id="mainXXXXX"></div>
         
         
@@ -33,53 +19,82 @@
     </main>
     <footer></footer>
     <script>
-        keys = {
+        //1.初始化数据
+        var keys = {
             '0': {0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
             '1': {0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:'9'},
             '2': {0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',length:'7'},
             'length': 3
         }
 
-        hash = {
-            'q': 'qq.com', 'w': 'weibo.com', 'e': 'ele.me', 'z': 'zhihu.com',   
+        var hash = {
+            'q': 'www.qq.com', 'w': 'weibo.com', 'e': 'ele.com', 'j': 'jianshu.com','z': 'zhihu.com',   
 
         }
         //取出localStorage中的zzz对应的hash
-        hashInlocalStrage = JSON.parse(localStorage.getItem('ZZZ') || 'null')
+        var hashInlocalStrage = JSON.parse(localStorage.getItem('zzz') || 'null')
         if(hashInlocalStrage) {
             hash = hashInlocalStrage
         }
+        
+        //2. 生成键盘
         // 遍历 keys，生成kbd标签
-        index = 0
+        var index = 0
         while(index < keys['length']){ // 0 1 2
-            divXXXXX = document.createElement('div')
+            var divXXXXX = document.createElement('div')
+            divXXXXX.className = 'row'
             mainXXXXX.appendChild(divXXXXX)
-            row = keys[index] // 第一数组 第二数组 第三数组
-            index2 = 0
+            var row = keys[index] // 第一数组 第二数组 第三数组
+            var index2 = 0
             while(index2 < row['length']){
-                kbdXXXXX = document.createElement('kbd')
-                kbdXXXXX.textContent = row[index2]
-                buttonX = document.createElement('button')
+                var kbdXXXXX = document.createElement('kbd')
+                var span = document.createElement('span')
+                span.textContent = row[index2]
+                span.className = 'text'
+                kbdXXXXX.className = 'key'
+                
+                var buttonX = document.createElement('button')
                 buttonX.textContent = '编辑'
                 buttonX.id = row[index2]
-                buttonX.onclick = function(cyj){
-                    //cyj['target']['id'] 就是用户点击的元素
-                    key = cyj['target']['id'] // q w e r
-                    x = prompt('给我一个网址')
+
+                var imgXXXXX = document.createElement('img')
+                kbdXXXXX.appendChild(imgXXXXX) 
+
+                if(hash[row[index2]]){
+                    imgXXXXX.src = 'http://' + hash[row[index2]] + '/favicon.ico'
+                }else{
+                    imgXXXXX.src= './img/alticon.jpg'
+                }
+
+                imgXXXXX.onerror = function(ero){
+                    ero.target.src = './img/alticon.jpg'
+                }
+
+
+                buttonX.onclick = function(cyj){ //bottonX容器 
+                    var buttonClick = cyj['target'] // <botton id=''>编辑<botton> 被用户点击的按钮
+                    var key = buttonClick['id'] // q w e r cyj['target']['id'] 就是用户点击的元素
+                    var img2 = buttonClick.previousSibling.previousSibling
+                    var x = prompt('给我一个网址') //zhihu.com
                     hash[key] = x // hash变更
+                    img2.src = 'http://' + x + '/favicon.ico'
+                    img2.onerror = function(ero){
+                    ero.target.src = './img/alticon.jpg'
+                    }
                     localStorage.setItem('zzz', JSON.stringify(hash))
                     console.log(hash)
-                    }
+                }
+                kbdXXXXX.appendChild(span)
                 kbdXXXXX.appendChild(buttonX)
                 divXXXXX.appendChild(kbdXXXXX)
                 index2 = index2 + 1
             }
             index = index + 1
         }
-
+        //3.监听键盘
         document.onkeypress = function(sdx){
-            key = sdx['key']
-            website = hash[key]
+            var key = sdx['key']
+            var website = hash[key]
             //location.href = 'http://' + website
             window.open('http://' + website, '_blank')
         }

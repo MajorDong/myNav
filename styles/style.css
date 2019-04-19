@@ -2,11 +2,20 @@
     margin: 0;
     padding: 0;
 }
+body {    
+    background: gray url(../img/wall.jpeg) no-repeat center center;
+    background-size: cover;
+}
 a {
-    text-decoration: none;
+    text-decoration: none;    
 }
 main {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
 }
 #mainXXXXX {
     display: inline-block;
@@ -30,8 +39,54 @@ kbd:hover > button {
     display: inline-block;
 }
 #mainXXXXX div:nth-child(2){
-    margin-left: 1em;
+    margin-left: -15px;
 }
 #mainXXXXX div:nth-child(3) {
-    margin-left: 2em;
+    margin-left: -80px;
+}
+
+
+.key {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(to bottom, #292929 1%,#111111 100%);
+    color: #C9C8C9;
+    border: 1px solid #373737;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px; 
+    position: relative;
+                                            
+}
+.row {
+    margin:18px;
+}
+.row .key {
+    margin: 0 10px;
+}
+main .warpper {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #C9C8C9;
+    transition: box-shadow 0.2s;
+}
+main .warpper:hover {
+    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
+}
+.key img {
+    width: 14px;
+    height: 14px;
+   
+}
+
+.key .text {
+    position: absolute;
+    left: 4px;
+    top: 3px;
+}
+.key img {
+    position: absolute;
+    left: 4px;
+    bottom: 3px;
 }
