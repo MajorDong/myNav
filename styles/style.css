@@ -6,6 +6,14 @@ body {
     background: gray url(../img/wall.jpeg) no-repeat center center;
     background-size: cover;
 }
+.header{
+    height: 50px;
+    width: 100%;
+    background: #263649;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 a {
     text-decoration: none;    
 }
