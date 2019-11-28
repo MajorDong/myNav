@@ -13,6 +13,45 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
+}
+.header > .logo{
+    color: #e5dacd;
+    font-family: 'Alatsi', sans-serif;
+    font-size: 35px;
+    padding-left: 20px;
+}
+.baiduWrapper{
+    display: flex;
+}
+#keyword {
+    border: 1px solid #b8b8b8;
+    height: 28px;
+    line-height: 30px;
+    width: 200px;
+    padding-left: 8px;
+    font-size: 15px;
+}
+
+#keyword:hover{
+    border: 1px solid #3e74a9;
+}
+#keyword:focus{
+    outline: none;
+    border-color: #e5dacd;
+}
+#keyword:active {
+    outline: none;
+    border-color: #e5dacd;
+}
+.baiduWrapper > button {
+    background: #3e74a9;
+    color: white;
+    border: none;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 13px;
 }
 a {
     text-decoration: none;    
