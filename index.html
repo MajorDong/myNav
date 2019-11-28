@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的导航</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
 </head>
@@ -13,18 +14,31 @@
 <body>
     <header class="header" id="header">
         <div class="logo">MYNAV</div>
+        <div class="git">
+            <a href="https://github.com/MajorDong/myNav">
+                <svg class="icon2" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+                <span>Github</span>
+            </a>
+        </div>
+    </header>
 
+    <main>
         <div id="baiduWrapper"" class=" baiduWrapper">
             <span class="inputWrapper">
+                <svg class="icon1" aria-hidden="true">
+                    <use xlink:href="#icon-sousuo"></use>
+                </svg>
                 <input id="keyword" name="keyword" type="text" autocomplete="off" spellcheck="false">
             </span>
             <button id="btn">百度一下</button>
         </div>
-    </header>
-    <main>
         <div class="warpper" id="mainXXXXX"></div>
     </main>
-    <footer></footer>
+    <footer class="footer">
+        <span>Copyright © 2019 Jerry Shen.该网站开源</span>
+    </footer>
     <script>
         //1.初始化数据
         var keys = {
@@ -145,6 +159,7 @@
         }
 
     </script>
+    <script src="//at.alicdn.com/t/font_1536154_6istcr5727l.js"></script>
 </body>
 
 </html>
