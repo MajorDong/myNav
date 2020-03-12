@@ -38,7 +38,7 @@
         <div class="warpper" id="keyboard"></div>
     </main>
     <footer class="footer">
-        <span>Copyright © 2019 Jerry Shen.该网站开源</span>
+        <span>Copyright © 2019 Tom Shen.该网站开源</span>
     </footer>
     <script>
         //1.初始化数据
@@ -78,12 +78,13 @@
                 var img2 = buttonClick.previousSibling.previousSibling
                 var x = window.prompt('给我一个网址') //zhihu.com
                 hash[key] = x // hash变更
+                localStorage.setItem('newWebsite', JSON.stringify(hash))
+
                 img2.src = 'http://' + x + '/favicon.ico'
                 img2.onerror = function (ero) {
                     ero.target.src = './img/alticon.jpg'
                 }
-                localStorage.setItem('newWebsite', JSON.stringify(hash))
-                console.log(hash)
+                
             }
             return buttonX
         }
@@ -111,8 +112,8 @@
             var row = keys[index] // 第一数组 第二数组 第三数组
             for (var index2 = 0; index2 < row['length']; index2 = index2 + 1) {
                 var kbdSpan = createSpan(row[index2])
-                var kbdImg = createImg(hash[row[index2]])
                 var kbdButton = createButton(row[index2])
+                var kbdImg = createImg(hash[row[index2]])
 
                 var theKbd = document.createElement('kbd')
                 theKbd.className = 'key'
