@@ -5,6 +5,9 @@
 body {    
     background: gray url('../img/wall.jpeg') no-repeat center center;
     background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 .header{
     height: 50px;
@@ -110,12 +113,11 @@ main {
     height: 100vh;
     
 }
-#mainXXXXX {
+#keyboard {
     display: inline-block;
 }
 
 kbd {
-    border: 1px solid red;
     width: 4em;
     height: 4em;
     display: inline-block;
@@ -137,10 +139,10 @@ kbd > button {
 kbd:hover > button {
     display: inline-block;
 }
-#mainXXXXX div:nth-child(2){
+#keyboard div:nth-child(2){
     margin-left: -15px;
 }
-#mainXXXXX div:nth-child(3) {
+#keyboard div:nth-child(3) {
     margin-left: -80px;
 }
 
@@ -148,7 +150,7 @@ kbd:hover > button {
 .key {
     width: 50px;
     height: 40px;
-    background: linear-gradient(to bottom, #292929 1%,#111111 100%);
+    background-image: linear-gradient(to bottom, #292929 1%,#111111 100%);
     color: #C9C8C9;
     border: 1px solid #373737;
     border-radius: 6px;
@@ -200,7 +202,12 @@ main .warpper {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 .footer > span{
     color: #e5dacd;
 }
+
